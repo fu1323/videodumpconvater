@@ -19,7 +19,7 @@ SourceBuffer.prototype.appendBuffer = function(buf) {
     const a = document.createElement("a");
     a.href = url;
     // 自动带上序号，方便你后端区分音频流和视频流（通常可以通过大小或者内容特征区分）
-    a.download = `chunk_${chunkId}.m4s`;
+    a.download = `chunk1_${chunkId}.m4s`;
     a.click();
 
     // 3. 延迟释放 URL 内存，防止内存泄漏

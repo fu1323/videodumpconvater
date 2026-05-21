@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.TreeMap;
+import java.util.UUID;
 
 public class Main {
     static ArrayList<File> all = new ArrayList<>();
@@ -15,7 +16,7 @@ public class Main {
     final static String AudioTrackCode_2 = "7466686400000002";
 
     public static void main(String[] args) throws IOException {
-        File file = new File("/Users/fuchunming/Downloads/未命名文件夹 2");
+        File file = new File("/Users/aaa/bbb/");
         if (!file.isDirectory()) {
             System.out.println("目录不存在！");
             return;
@@ -100,11 +101,11 @@ public class Main {
         }
 
         // 写入合并后的文件
-        try (BufferedOutputStream bosAudio = new BufferedOutputStream(new FileOutputStream("output_audio.mp4"))) {
+        try (BufferedOutputStream bosAudio = new BufferedOutputStream(new FileOutputStream(UUID.randomUUID().toString().replace("-","")+"output_audio.mp4"))) {
             writeMapToStream(audioMap, bosAudio);
         }
         System.out.println("ok");
-        try (BufferedOutputStream bosVideo = new BufferedOutputStream(new FileOutputStream("output_video.mp4"))) {
+        try (BufferedOutputStream bosVideo = new BufferedOutputStream(new FileOutputStream(UUID.randomUUID().toString().replace("-","")+"output_video.mp4"))) {
             writeMapToStream(videoMap, bosVideo);
         }
 
